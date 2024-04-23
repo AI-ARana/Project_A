@@ -1,0 +1,41 @@
+<!-- tenants/templates/tenants/delete_tenant.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Tenant</title>
+    <style>
+        header {
+            background-color: #a6ef129d;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            color: #e51aaf;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Second header style */
+        .header2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 43px;
+            color: #ff0000;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Tenant</h1>
+    <p>Are you sure you want to delete {{ tenant.name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>

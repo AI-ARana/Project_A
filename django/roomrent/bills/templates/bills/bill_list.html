@@ -1,0 +1,18 @@
+<!-- bills/templates/bills/bill_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill List</title>
+</head>
+<body>
+    <h1>Bill List</h1>
+    <ul>
+        {% for bill in bills %}
+            <li>{{ bill.tenant }} - {{ bill.amount }} - {{ bill.bill_type }} - {{ bill.date }} <a href="{% url 'update_bill' bill.id %}">Edit</a> <a href="{% url 'delete_bill' bill.id %}">Delete</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_bill' %}">Add Bill</a>
+</body>
+</html>

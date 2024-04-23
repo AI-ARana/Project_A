@@ -1,0 +1,41 @@
+<!-- tenants/templates/tenants/update_tenant.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Tenant</title>
+    <style>
+    header {
+        background-color: #a6ef129d;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+    .header1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 72px;
+        color: #e51aaf;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    /* Second header style */
+    .header2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 43px;
+        color: #ff0000;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Update Tenant</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

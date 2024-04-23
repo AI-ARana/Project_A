@@ -1,0 +1,100 @@
+<!-- tenants/templates/tenants/tenant_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1ced15a8;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            color: #f40470;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /* Second header style */
+        .header2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 43px;
+            color: #ff0000;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #logo {
+            width: 100px;
+            height: auto;
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        a {
+            color: #007bff;
+            font-family:'Times New Roman', Times, serif;
+            font-size: 23px;
+            text-decoration: none;
+            margin-left: 10px;
+            
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="{% static 'images/erra.png' %}" alt="Logo">
+        <h1 class="header1">SHANTICREST </h1>
+        <h2 class="header2">The PEERAL of SHANTI CREST</h2>
+        
+    </header>
+   <ul>
+        {% for tenant in tenants %}
+            <li>{{ tenant.name }} - {{ tenant.room_number }} 
+                <a href="{% url 'update_tenant' tenant.id %}">Edit</a>
+                <a href="{% url 'delete_tenant' tenant.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_tenant' %}">Add Tenant</a>
+    
+    <footer>
+        &copy; 2024 SHANICREST. All rights reserved.
+    </footer>
+</body>
+</html>
